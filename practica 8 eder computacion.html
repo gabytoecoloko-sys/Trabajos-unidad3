@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Curso de Python</title>
+    <style>
+        /* Estilos para que se vea moderno y limpio */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #3776ab; text-align: center; }
+        .nav-tabs { display: flex; justify-content: space-around; margin-bottom: 20px; border-bottom: 2px solid #ddd; }
+        .tab-btn { padding: 10px 20px; cursor: pointer; border: none; background: none; font-size: 16px; font-weight: bold; color: #555; }
+        .tab-btn.active { color: #3776ab; border-bottom: 3px solid #3776ab; }
+        .session-content { display: none; }
+        .session-content.active { display: block; }
+        pre { background: #272822; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: 'Consolas', monospace; }
+        .highlight { color: #a6e22e; } /* Color para comentarios en el código */
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🐍 Curso Express de Python</h1>
+    
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="openSession(event, 's1')">Sesión 1</button>
+        <button class="tab-btn" onclick="openSession(event, 's2')">Sesión 2</button>
+        <button class="tab-btn" onclick="openSession(event, 's3')">Sesión 3</button>
+    </div>
+
+    <div id="s1" class="session-content active">
+        <h2>Sesión 1: Fundamentos Básicos</h2>
+        <p>Aprenderás a crear tus primeras variables y entender los tipos de datos principales.</p>
+        <pre><code><span class="highlight"># Definición de variables</span>
+nombre = "Pythonista"
+edad = 20
+precio = 19.99
+
+print(f"Hola {nombre}, el curso cuesta {precio}")</code></pre>
+    </div>
+
+    <div id="s2" class="session-content">
+        <h2>Sesión 2: Control de Flujo</h2>
+        <p>Aprende a usar el condicional <b>if</b> y el bucle <b>for</b> para controlar tu programa.</p>
+        <pre><code><span class="highlight"># Condicionales y Ciclos</span>
+puntos = 85
+
+if puntos >= 70:
+    print("¡Aprobado!")
+
+for i in range(3):
+    print(f"Repetición número: {i}")</code></pre>
+    </div>
+
+    <div id="s3" class="session-content">
+        <h2>Sesión 3: Funciones y Listas</h2>
+        <p>Organiza tu código en bloques reutilizables y maneja colecciones de datos.</p>
+        <pre><code><span class="highlight"># Creación de funciones</span>
+def saludar(nombre):
+    return f"Bienvenido a la sesión 3, {nombre}"
+
+frutas = ["Manzana", "Banana", "Cereza"]
+print(saludar("Estudiante"))
+print(f"Tu lista: {frutas}")</code></pre>
+    </div>
+</div>
+
+<script>
+    // Función para cambiar entre pestañas
+    function openSession(evt, sessionId) {
+        var i, content, tabs;
+        content = document.getElementsByClassName("session-content");
+        for (i = 0; i < content.length; i++) {
+            content[i].classList.remove("active");
+        }
+        tabs = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove("active");
+        }
+        document.getElementById(sessionId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
